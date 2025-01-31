@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        img { max-width: 80%; max-height: 80%; }
+    </style>
+</head>
+<body>
+<img id="image" style="display:none;" ondblclick="zoomImage(event)">
+<script>
+    function displayImage(imageUrl) {
+        print("image url "+imageUrl);
+        const img = document.getElementById('image');
+        img.src = imageUrl;
+        img.style.display = 'block';
+    }
+
+    function toggleFullscreen() {
+        document.documentElement.requestFullscreen();
+    }
+    function zoomImage(event) {
+            const img = event.target;
+            if (!img.style.transform || img.style.transform === 'scale(1)') {
+                img.style.transform = 'scale(2)';
+            } else {
+                img.style.transform = 'scale(1)';
+            }
+        }
+</script>
+</body>
+</html>
